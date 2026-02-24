@@ -111,7 +111,7 @@ export default function App() {
             <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
               <Sparkles className="w-5 h-5 text-white" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-zinc-900">ThreadMaker</span>
+            <span className="font-bold text-xl tracking-tight text-zinc-900">スレまとめ</span>
           </div>
           <div className="text-sm text-zinc-500 font-medium hidden sm:block">
             URLからTwitterスレッドを数秒で作成
@@ -317,7 +317,7 @@ export default function App() {
       {/* Footer */}
       <footer className="max-w-5xl mx-auto px-4 py-12 border-t border-zinc-200 mt-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
-          <p>© 2024 ThreadMaker. Powered by Gemini.</p>
+          <p>© 2024 スレまとめ. Powered by Gemini.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-zinc-900 transition-colors">プライバシー</a>
             <a href="#" className="hover:text-zinc-900 transition-colors">利用規約</a>

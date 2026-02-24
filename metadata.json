@@ -1,5 +1,5 @@
 {
-  "name": "ThreadMaker",
-  "description": "URLを貼り付けるだけで、AIが日本語の要約とTwitterスレッドを作成。AI画像生成機能付き。",
+  "name": "Thread Maker",
+  "description": "URLを貼り付けるだけで、AIがTwitterスレッドを作成。",
   "requestFramePermissions": []
 }
