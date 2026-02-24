@@ -135,7 +135,7 @@ export default function App() {
             transition={{ delay: 0.1 }}
             className="text-lg text-zinc-600 max-w-xl mx-auto"
           >
-            URLを貼り付けるだけで、AIが内容を要約し、最適なTwitterスレッドを作成します。
+            URLを貼り付けるだけでAIがページ内容を把握し、最適なTwitterスレッドを作成します。
           </motion.p>
         </div>
 
@@ -317,7 +317,7 @@ export default function App() {
       {/* Footer */}
       <footer className="max-w-5xl mx-auto px-4 py-12 border-t border-zinc-200 mt-12">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-zinc-500">
-          <p>© 2024 スレまとめ. Powered by Gemini.</p>
+          <p>© {new Date().getFullYear()} スレまとめ. Powered by ともやん.</p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-zinc-900 transition-colors">プライバシー</a>
             <a href="#" className="hover:text-zinc-900 transition-colors">利用規約</a>
