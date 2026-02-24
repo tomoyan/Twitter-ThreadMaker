@@ -29,7 +29,6 @@ function cn(...inputs: ClassValue[]) {
 export default function App() {
   const [url, setUrl] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [isGeneratingImages, setIsGeneratingImages] = useState(false);
   const [result, setResult] = useState<ThreadResult | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
@@ -49,32 +48,6 @@ export default function App() {
       setError(err.message || 'エラーが発生しました');
     } finally {
       setIsLoading(false);
-    }
-  };
-
-  const handleGenerateImages = async () => {
-    if (!result) return;
-    setIsGeneratingImages(true);
-    try {
-      const updatedThread = await Promise.all(
-        result.thread.map(async (tweet) => {
-          if (tweet.imagePrompt && !tweet.imageData) {
-            try {
-              const imageData = await generateImage(tweet.imagePrompt);
-              return { ...tweet, imageData };
-            } catch (e) {
-              console.error("Image generation failed for tweet:", tweet.text, e);
-              return tweet;
-            }
-          }
-          return tweet;
-        })
-      );
-      setResult({ ...result, thread: updatedThread });
-    } catch (err) {
-      console.error("Batch image generation failed", err);
-    } finally {
-      setIsGeneratingImages(false);
     }
   };
 
@@ -251,18 +224,6 @@ export default function App() {
                     <h2 className="text-xl font-bold text-zinc-900">Twitterスレッド</h2>
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <button
-                      onClick={handleGenerateImages}
-                      disabled={isGeneratingImages}
-                      className="text-sm font-semibold text-emerald-600 hover:text-emerald-700 flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-emerald-50 transition-colors disabled:opacity-50"
-                    >
-                      {isGeneratingImages ? (
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                      ) : (
-                        <ImageIcon className="w-4 h-4" />
-                      )}
-                      全画像生成
-                    </button>
                     <button
                       onClick={copyForSheets}
                       className="text-sm font-semibold text-zinc-600 hover:text-zinc-700 flex items-center gap-2 px-4 py-2 rounded-lg hover:bg-zinc-100 transition-colors"

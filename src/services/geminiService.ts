@@ -23,8 +23,8 @@ export async function processUrl(url: string): Promise<ThreadResult> {
   Each tweet should stay under 140 characters (standard for Japanese Twitter). 
   The first tweet should be a hook. 
   The last tweet MUST include the original URL (${url}) and a call to action or a final thought.
-  2. For each tweet, identify the most relevant image URL from the article itself if available. 
-  3. Also provide a descriptive image prompt (in English) that could be used to generate a relevant visual if no suitable image exists in the article.`;
+  2. For the first tweet, identify the main image URL from the article. For other tweets, identify the most relevant image URL from the article itself if available. 
+  3. Also provide a descriptive image prompt (in English) for each tweet that could be used to generate a relevant visual if no suitable image exists in the article.`;
 
   const response = await ai.models.generateContent({
     model,
